@@ -51,7 +51,5 @@ These are the core technologies I'm focused on learning and applying:
 * 📧 **Email:** [cahyaningtiyas.arum@gmail.com]
 * 💼 **View My Analysis Projects:** [https://bit.ly/MyPortfolioArumcahya]
 
-###
 
-<img src="https://raw.githubusercontent.com/Arumcahya/Arumcahya/output/snake.svg" alt="Snake animation" />
 
