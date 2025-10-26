@@ -1,4 +1,4 @@
-## Hi there! I'm Arum Cahyaningtiyas👋
+# Hi there! I'm Arum Cahyaningtiyas👋
 
 <img width="2125" height="575" alt="github-header-banner" src="https://github.com/user-attachments/assets/3d0fac17-0272-4a1a-b0ae-baaad84d524e" />
 
