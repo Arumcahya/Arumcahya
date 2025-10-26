@@ -1,0 +1,45 @@
+# GitHub Action untuk menghasilkan animasi ular yang memakan kontribusi
+name: Generate Snake
+
+# Atur kapan Action ini akan dijalankan
+on:
+  schedule:
+    # Action akan berjalan setiap 12 jam
+    - cron: "0 */12 * * *"
+  
+  # Memungkinkan untuk menjalankan Action secara manual dari tab Actions
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout kode repositori Anda
+      - uses: actions/checkout@v4
+      
+      # Menjalankan aksi Platane/snk untuk menghasilkan animasi
+      - uses: Platane/snk@v3
+        id: snake-gif
+        with:
+          # Username GitHub Anda (otomatis diambil)
+         https://github.com/Arumcahya: ${{ github.repository_owner }}
+          
+          # Lokasi file output SVG (untuk dark mode)
+          outputs: |
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake.svg
+            
+      # Mengirim file yang dihasilkan (SVG/GIF) ke branch 'output'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: github-snake
+          path: dist/github-snake*.svg
+
+      # Commit file yang dihasilkan
+      - name: Push new generated files to output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output # Branch ini akan dibuat secara otomatis
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
